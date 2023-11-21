@@ -32,6 +32,9 @@ function thirteenth() {
     if (months > 12) {
         // Mostrar mensagem de erro e não realizar o cálculo
         document.getElementsByClassName('result')[0].textContent = 'Please enter a maximum of 12 months.';
+    } else if (months <= 0) {
+        // Mostrar mensagem de erro para meses inválidos
+        document.getElementsByClassName('result')[0].textContent = 'Please enter a valid number of months.';
     } else {
         // Calcular o décimo terceiro salário
         let thirteenth = newSalary * (months / 12);
