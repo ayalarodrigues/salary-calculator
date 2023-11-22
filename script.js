@@ -40,17 +40,19 @@ function vacation() {
 
 function thirteenth() {
     calculateNewSalary();
-    let months = parseInt(document.getElementById('months').value);
+    let monthsInput = document.getElementById('months');
+    let months = parseInt(monthsInput.value);
 
-    if (months > 12) {
-        document.getElementsByClassName('result')[0].textContent = 'Please enter a maximum of 12 months.';
-    } else if (months <= 0) {
+    if (isNaN(months) || months <= 0) {
         document.getElementsByClassName('result')[0].textContent = 'Please enter a valid number of months.';
+    } else if (months > 12) {
+        document.getElementsByClassName('result')[0].textContent = 'Please enter a maximum of 12 months.';
     } else {
         let thirteenth = newSalary * (months / 12);
         document.getElementsByClassName('result')[0].textContent = 'Your thirteenth is worth: $' + thirteenth.toFixed(2);
     }
 }
+
 
 // Adiciona a classe 'clicked' ao botão clicado
 function buttonClick(button) {
