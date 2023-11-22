@@ -30,11 +30,12 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+button:hover, button.clicked {
     background-color: #0056b3;
+    color: white;
 }
 
-.options {
+options {
     text-align: center;
     margin-bottom: 20px;
 }

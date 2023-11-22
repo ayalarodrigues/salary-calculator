@@ -1,8 +1,9 @@
 let newSalary;
+let activeButton = null; // Variável para armazenar o botão clicado
 
 function logout() {
     alert('You have been logged out.');
-    window.close(); // Esta linha fecha a janela
+    window.close();
 }
 
 function calculateNewSalary() {
@@ -49,4 +50,14 @@ function thirteenth() {
         let thirteenth = newSalary * (months / 12);
         document.getElementsByClassName('result')[0].textContent = 'Your thirteenth is worth: $' + thirteenth.toFixed(2);
     }
+}
+
+// Adiciona a classe 'clicked' ao botão clicado
+function buttonClick(button) {
+    if (activeButton) {
+        activeButton.classList.remove('clicked');
+    }
+
+    button.classList.add('clicked');
+    activeButton = button;
 }
