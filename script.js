@@ -61,10 +61,10 @@ function thirteenth() {
             let thirteenthCurrent = currentSalary * (months / 12);
             let thirteenthNew = newSalary * (months / 12);
 
-            document.getElementsByClassName('result')[0].textContent =
-                `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
-                `- Thirteenth with Current Salary: $${thirteenthCurrent.toFixed(2)}\n` +
-                `- Thirteenth with Increased Salary: $${thirteenthNew.toFixed(2)}`;
+            document.getElementsByClassName('result')[0].innerHTML =
+                `<div class = "results">Your Results:<br><br>New Salary: $${newSalary.toFixed(2)}<br><br>` +
+                `- Thirteenth with Current Salary: $${thirteenthCurrent.toFixed(2)}<br>` +
+                `- Thirteenth with Increased Salary: $${thirteenthNew.toFixed(2)}</div>`;
         }
     }
 }
