@@ -41,10 +41,10 @@ function vacation() {
         let vacationCurrent = currentSalary + (currentSalary / 3);
         let vacationNew = newSalary + (newSalary / 3);
 
-        document.getElementsByClassName('result')[0].textContent =
-            `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
-            `- Vacation with Current Salary: $${vacationCurrent.toFixed(2)}\n` +
-            `- Vacation with Increased Salary: $${vacationNew.toFixed(2)}`;
+        document.getElementsByClassName('result')[0].innerHTML =
+            `<div class="results">Your Results:<br><br>New Salary: $${newSalary.toFixed(2)}<br><br>` +
+            `- Vacation with Current Salary: $${vacationCurrent.toFixed(2)}<br>` +
+            `- Vacation with Increased Salary: $${vacationNew.toFixed(2)}</div>`;
     }
 }
 
@@ -54,20 +54,20 @@ function thirteenth() {
     let monthsInput = document.getElementById('months');
     let months = parseInt(monthsInput.value);
 
-    if (newSalary !== null && !isNaN(months) && months > 0 && months <= 12) {
-        let thirteenthCurrent = currentSalary * (months / 12);
-        let thirteenthNew = newSalary * (months / 12);
+    if (newSalary !== null) {
+        if (isNaN(months) || months <= 0 || months > 12) {
+            document.getElementsByClassName('result')[0].textContent = 'Please enter a valid number of months (1 to 12).';
+        } else {
+            let thirteenthCurrent = currentSalary * (months / 12);
+            let thirteenthNew = newSalary * (months / 12);
 
-        document.getElementsByClassName('result')[0].textContent =
-            `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
-            `- Thirteenth with Current Salary: $${thirteenthCurrent.toFixed(2)}\n` +
-            `- Thirteenth with Increased Salary: $${thirteenthNew.toFixed(2)}`;
-    } else {
-        document.getElementsByClassName('result')[0].textContent = 'Please enter valid values.';
+            document.getElementsByClassName('result')[0].textContent =
+                `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
+                `- Thirteenth with Current Salary: $${thirteenthCurrent.toFixed(2)}\n` +
+                `- Thirteenth with Increased Salary: $${thirteenthNew.toFixed(2)}`;
+        }
     }
 }
-
-
 
 
 // Adiciona a classe 'clicked' ao botão clicado
@@ -84,7 +84,7 @@ function buttonClick(button) {
 function resetFields() {
     document.getElementById('salary').value = '';
     document.getElementById('months').value = '';
-    document.getElementsByClassName('result')[0].textContent = '';
+    document.getElementsByClassName('result')[0].innerHTML = '';
 
     // Remove a classe 'clicked' do botão ativo
     if (activeButton) {

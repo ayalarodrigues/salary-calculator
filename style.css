@@ -70,25 +70,33 @@ input {
     font-size: 16px;
 }
 
-.result {
-    text-align: center;
-    font-size: 18px;
-    color: #28a745; /* cor verde para resultados positivos */
+
+.results {
     margin-top: 20px;
 }
 
+/* Estilizando os resultados */
+.result {
+    text-align: center;
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+/* Estilizando o botão de reset */
 .reset-button {
-    background-color: #dc3545; /* Vermelho escuro para o botão de reset */
+    background-color: #dc3545;
     color: white;
     border: none;
     padding: 12px 24px;
     cursor: pointer;
-    margin: 8px auto; /* Centraliza o botão horizontalmente */
+    margin: 8px auto;
     border-radius: 4px;
     font-size: 16px;
     display: block;
 }
 
 .reset-button:hover {
-    background-color: #bd2130; /* Tom mais escuro ao passar o mouse */
+    background-color: #bd2130;
 }
+
