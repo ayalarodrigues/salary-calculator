@@ -13,7 +13,7 @@ function calculateNewSalary() {
     if (isNaN(salaryInput.value) || salaryInput.value === '') {
         salaryMessage.textContent = 'Please enter a valid number.';
         salaryMessage.style.color = 'red';
-        return;
+        return null;
     }
 
     let salary = parseFloat(salaryInput.value);
@@ -29,29 +29,46 @@ function calculateNewSalary() {
     document.getElementsByClassName('result')[0].textContent = 'Your new salary is: $' + newSalary.toFixed(2);
     salaryMessage.textContent = 'Only numbers are allowed.';
     salaryMessage.style.color = '#777';
+
+    return newSalary; // Agora a função retorna o novo salário
 }
 
 function vacation() {
-    calculateNewSalary();
-    let vacation = newSalary + (newSalary / 3);
+    let currentSalary = parseFloat(document.getElementById('salary').value);
+    let newSalary = calculateNewSalary();
 
-    document.getElementsByClassName('result')[0].textContent = 'Your vacation is worth: $' + vacation.toFixed(2);
+    if (newSalary !== null) {
+        let vacationCurrent = currentSalary + (currentSalary / 3);
+        let vacationNew = newSalary + (newSalary / 3);
+
+        document.getElementsByClassName('result')[0].textContent =
+            `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
+            `- Vacation with Current Salary: $${vacationCurrent.toFixed(2)}\n` +
+            `- Vacation with Increased Salary: $${vacationNew.toFixed(2)}`;
+    }
 }
 
 function thirteenth() {
-    calculateNewSalary();
+    let currentSalary = parseFloat(document.getElementById('salary').value);
+    let newSalary = calculateNewSalary();
     let monthsInput = document.getElementById('months');
     let months = parseInt(monthsInput.value);
 
-    if (isNaN(months) || months <= 0) {
-        document.getElementsByClassName('result')[0].textContent = 'Please enter a valid number of months.';
-    } else if (months > 12) {
-        document.getElementsByClassName('result')[0].textContent = 'Please enter a maximum of 12 months.';
+    if (newSalary !== null && !isNaN(months) && months > 0 && months <= 12) {
+        let thirteenthCurrent = currentSalary * (months / 12);
+        let thirteenthNew = newSalary * (months / 12);
+
+        document.getElementsByClassName('result')[0].textContent =
+            `Your Results:\n\nNew Salary: $${newSalary.toFixed(2)}\n\n` +
+            `- Thirteenth with Current Salary: $${thirteenthCurrent.toFixed(2)}\n` +
+            `- Thirteenth with Increased Salary: $${thirteenthNew.toFixed(2)}`;
     } else {
-        let thirteenth = newSalary * (months / 12);
-        document.getElementsByClassName('result')[0].textContent = 'Your thirteenth is worth: $' + thirteenth.toFixed(2);
+        document.getElementsByClassName('result')[0].textContent = 'Please enter valid values.';
     }
 }
+
+
+
 
 // Adiciona a classe 'clicked' ao botão clicado
 function buttonClick(button) {
