@@ -8,10 +8,10 @@
     <div class="container">
         <h1>Company Program</h1>
         <div class="options">
-            <button onclick="calculateNewSalary()" onmouseover="buttonClick(this)">New Salary</button>
-            <button onclick="vacation()" onmouseover="buttonClick(this)">Vacation</button>
-            <button onclick="thirteenth()" onmouseover="buttonClick(this)">Thirteenth</button>
-            <button onclick="logout()" onmouseover="buttonClick(this)">Logout</button>
+            <button  onclick="calculateNewSalary()">New Salary</button>
+            <button  onclick="vacation()">Vacation</button>
+            <button  onclick="thirteenth()">Thirteenth</button>
+            <button  onclick="logout()">Logout</button>
         </div>
         <div class="input">
             <label for="salary">Salary:</label>
@@ -24,6 +24,9 @@
             <input type="number" id="months" placeholder="Enter months (numbers only)" required max="12">
         </div>
         <div class="result"></div>
+        
+        <!-- Novo botão Reset -->
+        <button onclick="resetFields()">Reset Fields</button>
     </div>
     <script src="script.js"></script>
 </body>

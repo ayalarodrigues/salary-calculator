@@ -53,7 +53,6 @@ function thirteenth() {
     }
 }
 
-
 // Adiciona a classe 'clicked' ao botão clicado
 function buttonClick(button) {
     if (activeButton) {
@@ -62,4 +61,17 @@ function buttonClick(button) {
 
     button.classList.add('clicked');
     activeButton = button;
+}
+
+// Função para resetar os campos
+function resetFields() {
+    document.getElementById('salary').value = '';
+    document.getElementById('months').value = '';
+    document.getElementsByClassName('result')[0].textContent = '';
+
+    // Remove a classe 'clicked' do botão ativo
+    if (activeButton) {
+        activeButton.classList.remove('clicked');
+        activeButton = null;
+    }
 }
